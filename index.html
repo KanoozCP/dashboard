@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Report- Central Planning</title>
+    <title>Dashboard Report - Kanooz</title>
     
     <!-- Modern Font Inter & Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -34,9 +34,7 @@
             overflow-x: hidden;
         }
 
-        h1 {
-            font-family: 'Poppins', sans-serif;
-        }
+        h1 { font-family: 'Poppins', sans-serif; }
 
         @keyframes kcpGrad {
             0% { background-position: 0% 50%; }
@@ -71,7 +69,7 @@
             border-radius: 0.75rem;
             color: #475569;
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s ease;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
@@ -92,15 +90,14 @@
 
         iframe {
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 80px); /* Adjusting for header height */
             border: none;
             outline: none;
             display: block;
             background: #ffffff;
         }
-        .header-hidden {
-            transform: translateY(-100%);
-        }
+
+        .header-hidden { transform: translateY(-100%); }
     </style>
 </head>
 <body>
@@ -114,8 +111,8 @@
 
             <div class="absolute left-1/2 -translate-x-1/2">
                 <div class="animate-kcp-gradient p-[1px] rounded-2xl shadow-xl">
-                    <div class="bg-white/10 backdrop-blur-xl px-10 py-3 rounded-[15px] border border-white/20 text-center">
-                        <h1 class="text-white font-extrabold text-xl tracking-tight uppercase whitespace-nowrap">
+                    <div class="bg-white/10 backdrop-blur-xl px-4 md:px-10 py-3 rounded-[15px] border border-white/20 text-center">
+                        <h1 class="text-white font-extrabold text-sm md:text-xl tracking-tight uppercase whitespace-nowrap">
                             DASHBOARD REPORT
                         </h1>
                     </div>
@@ -124,7 +121,7 @@
 
             <a href="https://kanoozcp.github.io/" class="home-btn relative z-10">
                 <i data-lucide="home" class="w-[18px] h-[18px]"></i>
-                <span class="hidden sm:inline">Home</span>
+                <span class="hidden sm:inline">Back to Portal</span>
             </a>
         </div>
     </header>
@@ -138,74 +135,38 @@
         </iframe>
     </main>
 
-    <!-- Refined Footer -->
-    <footer class="mt-20 border-t border-slate-200 bg-white/40 backdrop-blur-3xl relative z-10 w-full px-4 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 py-16">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <!-- Refined Reduced Footer -->
+    <footer class="border-t border-slate-200/60 bg-white/30 backdrop-blur-3xl relative z-10 w-full">
+        <div class="max-w-7xl mx-auto px-6 py-4 md:py-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="space-y-4">
-                        <h4 class="text-slate-900 font-black text-lg tracking-tight uppercase text-left">
-                            Contact Information
-                        </h4>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4 group cursor-default">
-                                <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-lg shadow-slate-900/10 transition-transform group-hover:scale-110">
-                                    <i data-lucide="map-pin" class="w-[18px] h-[18px]"></i>
-                                </div>
-                                <div class="text-left">
-                                    <p class="text-slate-900 font-bold text-sm leading-none mb-1">Kanooz Contracting Est</p>
-                                    <p class="text-slate-500 text-xs font-medium">Dammam, Kingdom of Saudi Arabia</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-4 group">
-                                <a href="mailto:Info@kanooz.com" class="w-10 h-10 rounded-xl bg-blue-600/10 text-blue-600 flex items-center justify-center transition-all hover:bg-blue-600 hover:text-white">
-                                    <i data-lucide="mail" class="w-[18px] h-[18px]"></i>
-                                </a>
-                                <div class="text-left">
-                                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-1">Email Us</p>
-                                    <a href="mailto:Info@kanooz.com" class="text-slate-900 font-bold text-sm hover:text-blue-600 transition-colors">Info@kanooz.com</a>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-4 group">
-                                <a href="tel:+96692000043" class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center transition-all hover:bg-emerald-500 hover:text-white">
-                                    <i data-lucide="phone" class="w-[18px] h-[18px]"></i>
-                                </a>
-                                <div class="text-left">
-                                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-1">Call Support</p>
-                                    <a href="tel:+96692000043" class="text-slate-900 font-bold text-sm hover:text-emerald-600 transition-colors">+966 92000043</a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-3">
+                    <div class="flex items-center gap-2 group cursor-default">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                        <span class="text-slate-600 font-medium text-[11px]">Dammam, KSA</span>
                     </div>
+
+                    <a href="mailto:Info@kanooz.com" class="flex items-center gap-2 group">
+                        <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-500"></i>
+                        <span class="text-slate-600 font-medium text-[11px] group-hover:text-blue-600 transition-colors">Info@kanooz.com</span>
+                    </a>
+
+                    <a href="tel:+96692000043" class="flex items-center gap-2 group">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-500"></i>
+                        <span class="text-slate-600 font-medium text-[11px] group-hover:text-emerald-600 transition-colors">+966 92000043</span>
+                    </a>
                 </div>
 
-                <div class="lg:col-span-7 lg:text-right flex flex-col pt-2">
-                    <div class="space-y-4">
-                        <img src="https://kanooz.com/assets/images/logo.png" alt="Kanooz" class="h-10 ml-auto opacity-50 grayscale hover:grayscale-0 transition-all">
-                        <div class="space-y-1">
-                            <p class="text-slate-900 font-black text-xl tracking-tighter uppercase">
-                                Central <span class="text-blue-600">Planning</span>
-                            </p>
-                            <p class="text-slate-500 text-sm max-w-md ml-auto leading-relaxed">
-                                Dedicated to industrial excellence through Project progress tracking, strategic resource allocation, 
-                                global manpower mobilization and comprehensive equipment tracking.
-                            </p>
-                        </div>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <p class="text-slate-400 text-[10px] font-medium">
+                            © 2026 Kanooz Contracting Est.
+                        </p>
+                        <span class="text-[8px] font-bold text-slate-300 uppercase tracking-[0.2em] px-2 py-0.5 border border-slate-200 rounded-full select-none">
+                            v1.0.0
+                        </span>
                     </div>
-                </div>
-            </div>
-
-            <div class="mt-16 pt-8 border-t border-slate-200/50 flex flex-col items-center justify-center text-center gap-4">
-                <p class="text-slate-400 text-xs font-medium">
-                    © 2026 Kanooz – Central Planning Division. All Rights Reserved.
-                </p>
-                <div class="flex items-center justify-center">
-                    <span class="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em] px-3 py-1 border border-slate-200 rounded-full cursor-default">
-                        System Version 1.0.0
-                    </span>
+                    <img src="https://kanooz.com/assets/images/logo.png" alt="Kanooz" class="h-8 opacity-40 grayscale hover:grayscale-0 transition-opacity">
                 </div>
             </div>
         </div>
@@ -227,10 +188,8 @@
             }
 
             if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
-                // Scroll down
                 header.classList.add('header-hidden');
             } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
-                // Scroll up
                 header.classList.remove('header-hidden');
             }
             lastScroll = currentScroll;
