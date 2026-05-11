@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Report - Kanooz</title>
+    <title>Dashboards - Kanooz Central Planning</title>
     
-    <!-- Modern Font Inter & Poppins -->
+    <!-- Modern Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Tailwind CSS 4 -->
+    <!-- Tailwind CSS 4 (via CDN for simplicity) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -24,17 +24,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            background-color: #f8fafc;
             color: #0f172a;
-            display: flex;
-            flex-direction: column;
             min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        h1 { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
 
         @keyframes kcpGrad {
             0% { background-position: 0% 50%; }
@@ -59,52 +57,145 @@
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        .home-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            color: #475569;
-            font-size: 0.875rem;
-            font-weight: 700;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        .home-btn:hover {
-            background: #f8fafc;
-            color: var(--kcp-blue);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-
-        main {
+        .iframe-container {
             width: 100%;
-            background: #ffffff;
+            height: calc(100vh - 160px); 
             position: relative;
+            background: #ffffff;
+            border-top: 1px solid rgba(226, 232, 240, 0.6);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .iframe-container {
+                height: calc(100vh - 176px);
+            }
+        }
+        @media (min-width: 1024px) {
+            .iframe-container {
+                flex-direction: row;
+            }
+        }
+        
+        .panel {
             flex: 1;
+            height: 100%;
+            position: relative;
+            overflow: auto;
+            background: #f1f5f9;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scaler-container {
+            flex: 1;
+            display: block;
+            padding: 1rem 2rem 4rem 2rem;
+            min-height: 100%;
+            min-width: 100%;
+            width: fit-content;
+        }
+
+        .scaled-holder {
+            display: block;
+            position: relative;
+            margin: 0 auto;
+            flex-shrink: 0;
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .iframe-scaler {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: top left;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .dashboard-wrapper {
+            width: 1400px;
+            height: 1400px;
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: calc(100vh - 80px); /* Adjusting for header height */
+            height: calc(100% + 40px);
             border: none;
-            outline: none;
-            display: block;
-            background: #ffffff;
+            overflow: hidden;
         }
 
-        .header-hidden { transform: translateY(-100%); }
+        .zoom-controls {
+            position: sticky;
+            top: 1rem;
+            right: 1.5rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-self: flex-end;
+            margin-right: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: -5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            pointer-events: auto;
+        }
+        .panel:hover .zoom-controls {
+            opacity: 1;
+        }
+
+        .btn-zoom {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            padding: 0.5rem;
+            border-radius: 0.625rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            color: #475569;
+            transition: all 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-zoom:hover { 
+            background: #ffffff; 
+            transform: scale(1.05); 
+            color: #1e293b;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .btn-zoom:active { transform: scale(0.95); }
+        .zoom-label {
+            font-size: 9px;
+            font-weight: 800;
+            min-width: 36px;
+            text-align: center;
+        }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.05] flex items-center justify-center">
+        <img src="https://lh3.googleusercontent.com/d/1oQr4RoR9ON5vK6U_oIN2hW0HdnpEloO8" alt="Watermark" class="w-[600px] max-w-[80vw] select-none">
+    </div>
 
     <!-- Header -->
     <header id="mainHeader" class="glass-header">
-        <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between w-full">
             <a href="https://kanooz.com/" target="_blank" class="flex items-center gap-4 group">
                 <img src="https://kanooz.com/assets/images/logo.png" alt="Kanooz Logo" class="h-10 md:h-14 transition-transform group-hover:scale-105">
             </a>
@@ -113,60 +204,90 @@
                 <div class="animate-kcp-gradient p-[1px] rounded-2xl shadow-xl">
                     <div class="bg-white/10 backdrop-blur-xl px-4 md:px-10 py-3 rounded-[15px] border border-white/20 text-center">
                         <h1 class="text-white font-extrabold text-sm md:text-xl tracking-tight uppercase whitespace-nowrap">
-                            DASHBOARD REPORT
+                            Dashboard Report
                         </h1>
                     </div>
                 </div>
             </div>
-
-            <a href="https://kanoozcp.github.io/" class="home-btn relative z-10">
-                <i data-lucide="home" class="w-[18px] h-[18px]"></i>
+            
+            <a href="https://kanoozcp.github.io/" class="flex items-center gap-2 px-4 py-2.5 bg-white/60 hover:bg-white border border-slate-200 rounded-xl text-slate-600 font-bold text-sm transition-all shadow-sm hover:shadow-md group">
+                <i data-lucide="home" class="w-4 h-4 transition-transform group-hover:scale-110"></i>
                 <span class="hidden sm:inline">Back to Portal</span>
             </a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main>
-        <iframe 
-            src="https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/embed.aspx?UniqueId=cb7a5f9a-a26e-4bd4-871e-6727511cdae8&action=embedview&wdStartOn=1&view=FitH" 
-            title="Dashboard Report"
-            allowfullscreen>
-        </iframe>
+    <main class="flex-1 w-full relative flex flex-col items-center overflow-hidden">
+        <div class="iframe-container w-full divide-x divide-slate-100">
+            <!-- MP Panel -->
+            <div class="panel">
+                <div class="zoom-controls">
+                    <button class="btn-zoom" onclick="zoomIn('mp')"><i data-lucide="zoom-in" style="width:14px;height:14px"></i></button>
+                    <button class="btn-zoom" onclick="zoomOut('mp')"><i data-lucide="zoom-out" style="width:14px;height:14px"></i></button>
+                    <button id="mpLevel" class="btn-zoom zoom-label" onclick="resetZoom('mp')">100%</button>
+                </div>
+                <div class="scaler-container">
+                    <div id="mpHolder" class="scaled-holder">
+                        <div id="mpScaler" class="iframe-scaler">
+                            <div class="dashboard-wrapper">
+                                <iframe 
+                                    src="https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={79d9dbbc-16c7-4caf-9c32-27f972d4cfc7}&action=embedview&wdAllowInteractivity=False&Item='MP%20DASHBOARD'!Print_Area&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=False&wdInConfigurator=False"
+                                    title="Manpower Dashboard"
+                                    scrolling="no">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EQ Panel -->
+            <div class="panel border-l border-slate-200">
+                <div class="zoom-controls">
+                    <button class="btn-zoom" onclick="zoomIn('eq')"><i data-lucide="zoom-in" style="width:14px;height:14px"></i></button>
+                    <button class="btn-zoom" onclick="zoomOut('eq')"><i data-lucide="zoom-out" style="width:14px;height:14px"></i></button>
+                    <button id="eqLevel" class="btn-zoom zoom-label" onclick="resetZoom('eq')">100%</button>
+                </div>
+                <div class="scaler-container">
+                    <div id="eqHolder" class="scaled-holder">
+                        <div id="eqScaler" class="iframe-scaler">
+                            <div class="dashboard-wrapper">
+                                <iframe 
+                                    src="https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={5d0bcfe9-1ba3-4ebb-b7b3-11100a511a09}&action=embedview&wdAllowInteractivity=False&Item='EQ%20DASHBOARD'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&edaebf=rslc0"
+                                    title="Equipment Dashboard"
+                                    scrolling="no">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- Reduced Footer -->
-    <footer class="mt-8 border-t border-slate-200/60 bg-white/30 backdrop-blur-3xl relative z-10 w-full">
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-200/60 bg-white/30 backdrop-blur-3xl relative z-10 w-full">
         <div class="max-w-7xl mx-auto px-6 py-4 md:py-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                
-                <!-- Contact Icons Row -->
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-3">
                     <div class="flex items-center gap-2 group cursor-default">
                         <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
                         <span class="text-slate-600 font-medium text-[11px]">Dammam, KSA</span>
                     </div>
-
                     <a href="mailto:Info@kanooz.com" class="flex items-center gap-2 group">
                         <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-500"></i>
                         <span class="text-slate-600 font-medium text-[11px] group-hover:text-blue-600 transition-colors">Info@kanooz.com</span>
                     </a>
-
                     <a href="tel:+96692000043" class="flex items-center gap-2 group">
                         <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-500"></i>
                         <span class="text-slate-600 font-medium text-[11px] group-hover:text-emerald-600 transition-colors">+966 92000043</span>
                     </a>
                 </div>
-
-                <!-- Copyright & Logo -->
                 <div class="flex items-center gap-6">
                     <div class="flex items-center gap-3">
-                        <p class="text-slate-400 text-[10px] font-medium select-none">
-                            © 2026 Kanooz Central Planning.
-                        </p>
-                        <span class="text-[8px] font-bold text-slate-300 uppercase tracking-[0.2em] px-2 py-0.5 border border-slate-200 rounded-full select-none">
-                            v1.0.0
-                        </span>
+                        <p class="text-slate-400 text-[10px] font-medium select-none">© 2026 Kanooz Central Planning.</p>
+                        <span class="text-[8px] font-bold text-slate-300 uppercase tracking-[0.2em] px-2 py-0.5 border border-slate-200 rounded-full select-none">v1.0.0</span>
                     </div>
                     <img src="https://kanooz.com/assets/images/logo.png" alt="Kanooz" class="h-8 opacity-40 grayscale hover:grayscale-0 transition-opacity">
                 </div>
@@ -175,27 +296,84 @@
     </footer>
 
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        let zooms = { mp: 100, eq: 100 };
 
-        // Header scroll effect
-        let lastScroll = 0;
-        const header = document.getElementById('mainHeader');
+        function updateZoom(type) {
+            const scaler = document.getElementById(type + 'Scaler');
+            const holder = document.getElementById(type + 'Holder');
+            const label = document.getElementById(type + 'Level');
+            const z = zooms[type];
+            const scale = z / 100;
+            
+            const originalWidth = 1400;
+            const originalHeight = 1400;
+            
+            // Visual size
+            const scaledWidth = originalWidth * scale;
+            const scaledHeight = originalHeight * scale;
+            
+            // The holder defines the layout space
+            holder.style.width = scaledWidth + 'px';
+            holder.style.height = scaledHeight + 'px';
+            
+            // The scaler stays at original resolution but gets scaled visually
+            scaler.style.width = originalWidth + 'px';
+            scaler.style.height = originalHeight + 'px';
+            scaler.style.transform = `scale(${scale})`;
+            
+            label.innerText = `${z}%`;
+        }
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                header.classList.remove('header-hidden');
-                return;
+        function fitToWidth(type) {
+            const holder = document.getElementById(type + 'Holder');
+            const panel = holder.closest('.panel');
+            if (!panel) return;
+            
+            const availableWidth = panel.clientWidth - 64; // accounting for 2rem padding on both sides
+            const originalWidth = 1400;
+            
+            if (availableWidth < originalWidth) {
+                const fitScale = Math.floor((availableWidth / originalWidth) * 100);
+                zooms[type] = Math.max(30, fitScale); // Minimum 30%
+            } else {
+                zooms[type] = 100;
             }
+            updateZoom(type);
+        }
 
-            if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
-                header.classList.add('header-hidden');
-            } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
-                header.classList.remove('header-hidden');
-            }
-            lastScroll = currentScroll;
+        // Initialize with auto-fit
+        window.addEventListener('load', () => {
+            fitToWidth('mp');
+            fitToWidth('eq');
         });
+
+        // Also fit on major resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                fitToWidth('mp');
+                fitToWidth('eq');
+            }, 250);
+        });
+
+        function zoomIn(type) {
+            if (zooms[type] < 250) {
+                zooms[type] += 10;
+                updateZoom(type);
+            }
+        }
+        function zoomOut(type) {
+            if (zooms[type] > 50) {
+                zooms[type] -= 10;
+                updateZoom(type);
+            }
+        }
+        function resetZoom(type) {
+            fitToWidth(type);
+        }
+
+        lucide.createIcons();
     </script>
 </body>
 </html>
