@@ -131,12 +131,12 @@
             Dashboard <span class="text-blue-600 font-bold">Report</span>
           </h2>
           <p class="text-base sm:text-lg text-slate-500 font-medium leading-relaxed">
-            Select an active operational dashboard below to view real-time resource planning data. Click any card to launch interactive popups.
+            Select an active operational dashboard below to view real-time high level update for resources including Mnapower, Equipment & Project. Click any card to launch interactive popups.
           </p>
         </div>
 
         <!-- Thumbnail Cards Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           
           <!-- Manpower Dashboard Card -->
           <div
@@ -181,7 +181,7 @@
                   </div>
                 </div>
                 <p class="text-slate-500 text-sm leading-relaxed text-left pl-0.5">
-                  Unified tracking system for manpower distribution across various projects. Provides real-time headcount checks, active deployment and mobilization logs synced directly with spreadsheet logs.
+                  Unified tracking system for manpower distribution across divisions. Provides real-time headcount checks, active deployment reporting, shift synchronization, and mobilization integrity logs synced directly with spreadsheet logs.
                 </p>
               </div>
             </div>
@@ -204,7 +204,7 @@
                 <div class="flex flex-wrap gap-2 mb-3">
                   <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Fleets Status</span>
                   <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Excel Streamed</span>
-                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Active Allocations</span>
+                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Interactive Matrix</span>
                 </div>
                 <h3 class="font-extrabold text-white text-2xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
                   Equipment Dashboard
@@ -230,7 +230,56 @@
                   </div>
                 </div>
                 <p class="text-slate-500 text-sm leading-relaxed text-left pl-0.5">
-                  Comprehensive operational overview of equipment & vehicle assets. Tracks active mobilizations, equipment inventory, daily utilization, deployment details, and ongoing service health.
+                  Comprehensive operational overview of Equipment assets. Tracks active mobilizations, equipment inventory, daily utilization parameters, deployment details, and service health.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project & Invoice Update Card -->
+          <div
+            id="card-pj_inv"
+            onclick="openModal('pj_inv')"
+            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-100 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1.5 flex flex-col h-full"
+          >
+            <!-- Card Image Thumbnail Header -->
+            <div class="h-64 overflow-hidden relative shrink-0">
+              <img 
+                src="https://kanooz.com/assets/images/services/plant_turnaround/trn11.jpg?v=0.1" 
+                alt="Project & Invoice Update" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Project Status</span>
+                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Invoice Tracking</span>
+                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Financial Milestones</span>
+                </div>
+                <h3 class="font-extrabold text-white text-2xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
+                  Project & Invoice Update
+                </h3>
+              </div>
+
+              <!-- Floating click prompt -->
+              <span class="absolute top-6 right-6 w-11 h-11 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
+                <i data-lucide="arrow-up-right" class="w-5 h-5 text-white"></i>
+              </span>
+            </div>
+
+            <!-- Card Body Details -->
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3.5 mb-4">
+                  <div class="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-indigo-600"></i>
+                  </div>
+                  <div>
+                    <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1">Interactive Matrix</p>
+                    <h4 class="text-slate-600 font-bold text-sm">Project Status & Invoice Tracking</h4>
+                  </div>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed text-left pl-0.5">
+                  Comprehensive overview of overall project status and client invoicing. Tracks project deliverables, financial milestones, invoice statuses etc.
                 </p>
               </div>
             </div>
@@ -250,7 +299,7 @@
                 <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200">Department Status Portal</span>
               </div>
               <h3 class="text-2xl sm:text-4xl font-black font-poppins tracking-tight leading-tight mb-4">
-                Need to manage or update project related details online?
+                Need to update the status of your project online?
               </h3>
               <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
                 Directly access the Departmental Update Portal for Mechanical, Catalyst, SSD, Tank & Flare, and Bolt torqueing.
@@ -431,9 +480,19 @@
             },
             eq: {
                 title: 'Equipment Dashboard',
-                subtitle: 'Equipment & Logistics Tracking',
+                subtitle: 'Machinery & Logistics Tracking',
                 embedUrl: "https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={5d0bcfe9-1ba3-4ebb-b7b3-11100a511a09}&action=embedview&wdAllowInteractivity=False&Item='EQ%20DASHBOARD'!Print_Area&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0",
                 icon: 'cpu',
+                displayWidth: 1475,
+                displayHeight: 1850,
+                cropTop: 0,
+                cropLeft: 0
+            },
+            pj_inv: {
+                title: 'Project & Invoice Update',
+                subtitle: 'Project Status & Invoice Tracking',
+                embedUrl: "https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={6acaba4e-b420-4c82-98b2-eb3ce4df7155}&action=embedview&wdAllowInteractivity=False&Item='PROJECT%20DASHBOARD'!Print_Area&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0",
+                icon: 'briefcase',
                 displayWidth: 1475,
                 displayHeight: 1850,
                 cropTop: 0,
