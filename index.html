@@ -92,7 +92,7 @@
     </div>
 
     <!-- Header -->
-    <header class="glass-header">
+    <header id="mainHeader" class="glass-header">
         <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between w-full">
             <a href="https://kanooz.com/" target="_blank" class="flex items-center gap-4 group">
                 <img src="https://kanooz.com/assets/images/logo.png" alt="Kanooz Logo" class="h-10 md:h-14 transition-transform group-hover:scale-105">
@@ -102,7 +102,7 @@
                 <div class="animate-kcp-gradient p-[1px] rounded-2xl shadow-xl">
                     <div class="bg-white/10 backdrop-blur-xl px-4 md:px-10 py-3 rounded-[15px] border border-white/20 text-center">
                         <h1 class="text-white font-extrabold text-xs md:text-xl tracking-tight uppercase whitespace-nowrap">
-                            CENTRAL PLANNING PORTAL
+                            Central Planning Portal
                         </h1>
                     </div>
                 </div>
@@ -135,54 +135,59 @@
           </p>
         </div>
 
-        <!-- Thumbnail Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <!-- Thumbnail Cards Stack (Vertical Layout) -->
+        <div class="flex flex-col gap-8 max-w-4xl mx-auto mb-16 w-full">
           
           <!-- Manpower Dashboard Card -->
           <div
             id="card-mp"
             onclick="openModal('mp')"
-            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-100 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1.5 flex flex-col h-full"
+            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-150 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1 flex flex-col md:flex-row min-h-[220px]"
           >
             <!-- Card Image Thumbnail Header -->
-            <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="h-48 md:h-auto md:w-80 overflow-hidden relative shrink-0">
               <img 
                 src="https://kanooz.com/assets/images/services/plant_turnaround/turnnew1.jpg?v=0.1" 
                 alt="Manpower Dashboard" 
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Manpower Status</span>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Live Planning</span>
                   <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Excel Streamed</span>
-                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Active Allocations</span>
                 </div>
-                <h3 class="font-extrabold text-white text-2xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
+                <h3 class="font-extrabold text-white text-xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
                   Manpower Dashboard
                 </h3>
               </div>
 
               <!-- Floating click prompt -->
-              <span class="absolute top-6 right-6 w-11 h-11 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
-                <i data-lucide="arrow-up-right" class="w-5 h-5 text-white"></i>
+              <span class="absolute top-4 right-4 w-9 h-9 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-white"></i>
               </span>
             </div>
 
             <!-- Card Body Details -->
-            <div class="p-8 flex-1 flex flex-col justify-between">
+            <div class="p-6 flex-1 flex flex-col justify-between text-left">
               <div>
-                <div class="flex items-center gap-3.5 mb-4">
-                  <div class="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm">
-                    <i data-lucide="users" class="w-6 h-6 text-blue-600"></i>
+                <div class="flex items-center gap-3.5 mb-3">
+                  <div class="w-11 h-11 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                    <i data-lucide="users" class="w-5.5 h-5.5 text-blue-600"></i>
                   </div>
                   <div>
                     <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1">Interactive Matrix</p>
-                    <h4 class="text-slate-600 font-bold text-sm">Workforce Status & Active Deployments</h4>
+                    <h4 class="text-slate-600 font-bold text-sm leading-tight">Workforce Status & Active Deployments</h4>
                   </div>
                 </div>
-                <p class="text-slate-500 text-sm leading-relaxed text-left pl-0.5">
+                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                   Unified tracking system for manpower distribution across divisions. Provides real-time headcount checks, active deployment reporting, shift synchronization, and mobilization integrity logs synced directly with spreadsheet logs.
                 </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-blue-600 group-hover:text-blue-700 transition-colors flex items-center gap-1">
+                  Click Here <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sheet View</span>
               </div>
             </div>
           </div>
@@ -191,47 +196,52 @@
           <div
             id="card-eq"
             onclick="openModal('eq')"
-            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-100 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1.5 flex flex-col h-full"
+            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-150 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1 flex flex-col md:flex-row min-h-[220px]"
           >
             <!-- Card Image Thumbnail Header -->
-            <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="h-48 md:h-auto md:w-80 overflow-hidden relative shrink-0">
               <img 
                 src="https://kanooz.com/assets/images/services/solid_waste_disposal/waste-m-8.jpg" 
                 alt="Equipment Dashboard" 
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
-                <div class="flex flex-wrap gap-2 mb-3">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
+                <div class="flex flex-wrap gap-2 mb-2">
                   <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Fleets Status</span>
-                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Excel Streamed</span>
-                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Interactive Matrix</span>
+                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Automated Logs</span>
                 </div>
-                <h3 class="font-extrabold text-white text-2xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
+                <h3 class="font-extrabold text-white text-xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
                   Equipment Dashboard
                 </h3>
               </div>
 
               <!-- Floating click prompt -->
-              <span class="absolute top-6 right-6 w-11 h-11 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
-                <i data-lucide="arrow-up-right" class="w-5 h-5 text-white"></i>
+              <span class="absolute top-4 right-4 w-9 h-9 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-white"></i>
               </span>
             </div>
 
             <!-- Card Body Details -->
-            <div class="p-8 flex-1 flex flex-col justify-between">
+            <div class="p-6 flex-1 flex flex-col justify-between text-left">
               <div>
-                <div class="flex items-center gap-3.5 mb-4">
-                  <div class="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm">
-                    <i data-lucide="cpu" class="w-6 h-6 text-amber-600"></i>
+                <div class="flex items-center gap-3.5 mb-3">
+                  <div class="w-11 h-11 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                    <i data-lucide="cpu" class="w-5.5 h-5.5 text-amber-600"></i>
                   </div>
                   <div>
                     <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1">Interactive Matrix</p>
-                    <h4 class="text-slate-600 font-bold text-sm">Equipment & Logistics Tracking</h4>
+                    <h4 class="text-slate-600 font-bold text-sm leading-tight">Equipment & Logistics Tracking</h4>
                   </div>
                 </div>
-                <p class="text-slate-500 text-sm leading-relaxed text-left pl-0.5">
+                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                   Comprehensive operational overview of Equipment assets. Tracks active mobilizations, equipment inventory, daily utilization parameters, deployment details, and service health.
                 </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-blue-600 group-hover:text-blue-700 transition-colors flex items-center gap-1">
+                  Click Here <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sheet View</span>
               </div>
             </div>
           </div>
@@ -240,47 +250,52 @@
           <div
             id="card-pj_inv"
             onclick="openModal('pj_inv')"
-            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-100 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1.5 flex flex-col h-full"
+            class="group cursor-pointer bg-white rounded-[2.25rem] border border-slate-150 overflow-hidden shadow-xl shadow-slate-200/25 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-200/25 hover:-translate-y-1 flex flex-col md:flex-row min-h-[220px]"
           >
             <!-- Card Image Thumbnail Header -->
-            <div class="h-64 overflow-hidden relative shrink-0">
+            <div class="h-48 md:h-auto md:w-80 overflow-hidden relative shrink-0">
               <img 
                 src="https://kanooz.com/assets/images/services/plant_turnaround/trn11.jpg?v=0.1" 
                 alt="Project & Invoice Update" 
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8">
-                <div class="flex flex-wrap gap-2 mb-3">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
+                <div class="flex flex-wrap gap-2 mb-2">
                   <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Project Status</span>
                   <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Invoice Tracking</span>
-                  <span class="text-[9px] font-bold text-white uppercase tracking-wider backdrop-blur-md bg-white/20 px-2.5 py-1 rounded-md">Financial Milestones</span>
                 </div>
-                <h3 class="font-extrabold text-white text-2xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
+                <h3 class="font-extrabold text-white text-xl tracking-tight leading-tight group-hover:text-blue-200 transition-colors font-poppins">
                   Project & Invoice Update
                 </h3>
               </div>
 
               <!-- Floating click prompt -->
-              <span class="absolute top-6 right-6 w-11 h-11 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
-                <i data-lucide="arrow-up-right" class="w-5 h-5 text-white"></i>
+              <span class="absolute top-4 right-4 w-9 h-9 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 border border-white/20">
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-white"></i>
               </span>
             </div>
 
             <!-- Card Body Details -->
-            <div class="p-8 flex-1 flex flex-col justify-between">
+            <div class="p-6 flex-1 flex flex-col justify-between text-left">
               <div>
-                <div class="flex items-center gap-3.5 mb-4">
-                  <div class="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm">
-                    <i data-lucide="briefcase" class="w-6 h-6 text-indigo-600"></i>
+                <div class="flex items-center gap-3.5 mb-3">
+                  <div class="w-11 h-11 bg-slate-50 border border-slate-100 text-slate-800 rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                    <i data-lucide="briefcase" class="w-5.5 h-5.5 text-indigo-600"></i>
                   </div>
                   <div>
                     <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest leading-none mb-1">Interactive Matrix</p>
-                    <h4 class="text-slate-600 font-bold text-sm">Project Status & Invoice Tracking</h4>
+                    <h4 class="text-slate-600 font-bold text-sm leading-tight">Project Status & Invoice Tracking</h4>
                   </div>
                 </div>
-                <p class="text-slate-500 text-sm leading-relaxed text-left pl-0.5">
+                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                   Comprehensive overview of overall project status and client invoicing. Tracks project deliverables, financial milestones, invoice statuses etc.
                 </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-blue-600 group-hover:text-blue-700 transition-colors flex items-center gap-1">
+                  Click Here <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sheet View</span>
               </div>
             </div>
           </div>
@@ -302,7 +317,7 @@
                 Need to update the status of your project online?
               </h3>
               <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
-                Directly access the Departmental Update Portal for Mechanical, Catalyst, SSD, Tank & Flare, and Bolt torqueing.
+                Directly access the Departmental Update Portal for divisions including Mechanical, Catalyst, SSD, Tank & Flare and Bolting.
               </p>
             </div>
             
@@ -318,6 +333,7 @@
     </main>
 
     <!-- Interactive Pop-up Modal Dashboard Viewer -->
+    <!-- Interactive Pop-up Modal Dashboard Viewer -->
     <div 
         id="dashboardModal" 
         class="fixed inset-0 z-50 overflow-hidden bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-0 md:p-6 opacity-0 pointer-events-none transition-all duration-300"
@@ -326,9 +342,6 @@
             id="modalBody"
             class="bg-white md:rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden w-full h-full max-w-[1600px] max-h-[96vh] flex flex-col border border-slate-200 shadow-slate-350/40 transform scale-95 translate-y-4 transition-all duration-500"
         >
-            <!-- Luxury Accent Line representing connectivity -->
-            <div class="h-[3px] w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-amber-500 shrink-0"></div>
-
             <!-- Modal Header Navbar - Light Mode & Clean shadow -->
             <div class="bg-white/95 backdrop-blur-xl text-slate-800 px-6 py-4 flex flex-col xl:flex-row xl:items-center justify-between gap-4 shrink-0 border-b border-slate-100 shadow-sm relative z-20">
                 <div class="flex items-center gap-3">
@@ -343,7 +356,7 @@
                             <span class="inline-flex items-center gap-1 text-[9px] font-bold text-center text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 uppercase tracking-widest">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                                 Active Stream
-                            </span>
+                             </span>
                         </div>
                         <span id="modalSubtitle" class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-0.5 mt-1 block">
                             Workforce Status & Active Deployments • Real-time Data Integrator
@@ -353,36 +366,51 @@
 
                 <!-- Controls toolbar -->
                 <div class="flex items-center gap-3 text-slate-700">
-                    <!-- Zoom controls panel -->
-                    <div class="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-xl p-1 shadow-sm shrink-0">
-                        <button 
-                            onclick="zoomOut()"
-                            class="p-1.5 hover:bg-white rounded-lg active:scale-95 transition-all text-slate-600 hover:text-blue-600 border border-transparent hover:border-slate-105 cursor-pointer flex items-center justify-center"
-                            title="Zoom Out"
+                    
+                    <!-- Desktop-only zoom/pan controls helper wrapper to prevent mobile overflow -->
+                    <div id="desktopControlsWrapper" class="flex items-center gap-3">
+                        <!-- Pan Mode Toggle Button -->
+                        <button
+                            id="panToggleButton"
+                            onclick="togglePan()"
+                            class="flex items-center justify-center gap-1.5 px-3 py-2 bg-blue-600 text-white border-blue-600 hover:bg-blue-700/90 rounded-xl font-bold text-xs transition-all shadow-sm cursor-pointer select-none shrink-0"
+                            title="Lock Pan & Interact with Excel"
                         >
-                            <i data-lucide="zoom-out" class="w-4 h-4"></i>
+                            <i data-lucide="hand" class="w-3.5 h-3.5 text-white animate-pulse"></i>
+                            <span>Pan: On</span>
                         </button>
-                        <span id="zoomPercentageLabel" class="text-xs font-bold text-slate-700 min-w-[3rem] text-center select-none font-mono">
-                            100%
-                        </span>
-                        <button 
-                            onclick="zoomIn()"
-                            class="p-1.5 hover:bg-white rounded-lg active:scale-95 transition-all text-slate-600 hover:text-blue-600 border border-transparent hover:border-slate-105 cursor-pointer flex items-center justify-center"
-                            title="Zoom In"
-                        >
-                            <i data-lucide="zoom-in" class="w-4 h-4"></i>
-                        </button>
-                    </div>
 
-                    <!-- Resize to Fit option -->
-                    <button 
-                        onclick="resizeToFit()"
-                        class="flex items-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-white hover:text-blue-600 border border-slate-200/80 rounded-xl text-slate-600 font-bold text-xs transition-all shadow-sm cursor-pointer active:scale-95 select-none animate-pulse-slow"
-                        title="Resize to Perfect Fit"
-                    >
-                        <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-                        <span class="hidden sm:inline">Fit Screen</span>
-                    </button>
+                        <!-- Resize to Fit option -->
+                        <button 
+                            onclick="resizeToFit()"
+                            class="flex items-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-white hover:text-blue-600 border border-slate-200/80 rounded-xl text-slate-600 font-bold text-xs transition-all shadow-sm cursor-pointer active:scale-95 select-none animate-pulse-slow"
+                            title="Resize to Perfect Fit"
+                        >
+                            <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                            <span class="hidden sm:inline">Fit Screen</span>
+                        </button>
+
+                        <!-- Zoom controls panel -->
+                        <div class="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-xl p-1 shadow-sm shrink-0">
+                            <button 
+                                onclick="zoomOut()"
+                                class="p-1.5 hover:bg-white rounded-lg active:scale-95 transition-all text-slate-600 hover:text-blue-600 border border-transparent hover:border-slate-105 cursor-pointer flex items-center justify-center"
+                                title="Zoom Out"
+                            >
+                                <i data-lucide="zoom-out" class="w-4 h-4"></i>
+                            </button>
+                            <span id="zoomPercentageLabel" class="text-xs font-bold text-slate-700 min-w-[3rem] text-center select-none font-mono">
+                                100%
+                            </span>
+                            <button 
+                                onclick="zoomIn()"
+                                class="p-1.5 hover:bg-white rounded-lg active:scale-95 transition-all text-slate-600 hover:text-blue-600 border border-transparent hover:border-slate-105 cursor-pointer flex items-center justify-center"
+                                title="Zoom In"
+                            >
+                                <i data-lucide="zoom-in" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
 
                     <span class="w-[1px] h-6 bg-slate-200 max-sm:hidden"></span>
 
@@ -397,25 +425,28 @@
                 </div>
             </div>
 
+            <!-- Luxury Accent Line now located between header and body -->
+            <div class="h-[4px] w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-amber-500 shrink-0 relative z-10"></div>
+
             <!-- Content Panel viewport - Scrollable and light themed background backdrop -->
-            <div class="flex-1 bg-slate-100/60 flex relative overflow-hidden">
+            <div class="flex-1 bg-white flex relative overflow-hidden">
                 
                 <!-- Viewport Container -->
                 <div 
                     id="modalViewportPost"
-                    class="flex-1 overflow-auto flex relative p-12 custom-scrollbar-slate cursor-default w-full h-full animate-fadeIn"
+                    class="flex-1 overflow-auto flex relative p-12 bg-white cursor-default w-full h-full animate-fadeIn"
                 >
                     <!-- Scaler Canvas Container Centered -->
                     <div 
                         id="scalerCanvas"
-                        class="m-auto shrink-0 relative"
+                        class="m-auto shrink-0 relative bg-white"
                         style="width: 1475px; height: 1850px;"
                     >
                         <div 
                             id="scaleHolder"
                             class="absolute top-0 left-0 w-full h-full"
                         >
-                            <div class="w-full h-full bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] border border-slate-200 relative">
+                            <div class="w-full h-full bg-white overflow-hidden relative">
                                 <iframe 
                                     id="dashboardIframe"
                                     src=""
@@ -423,6 +454,11 @@
                                     class="iframe-crop-wrapper"
                                     scrolling="no"
                                 ></iframe>
+                                <!-- Interactive Drag/Pan overlay -->
+                                <div 
+                                    id="panOverlay"
+                                    class="absolute inset-0 z-30 cursor-grab active:cursor-grabbing bg-transparent select-none touch-none"
+                                ></div>
                             </div>
                         </div>
                     </div>
@@ -481,7 +517,7 @@
             eq: {
                 title: 'Equipment Dashboard',
                 subtitle: 'Machinery & Logistics Tracking',
-                embedUrl: "https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={5d0bcfe9-1ba3-4ebb-b7b3-11100a511a09}&action=embedview&wdAllowInteractivity=False&Item='EQ%20DASHBOARD'!Print_Area&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0",
+                embedUrl: "https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={5d0bcfe9-1ba3-4ebb-b7b3-11100a511a09}&action=embedview&wdAllowInteractivity=False&Item='EQ%20DASHBOARD'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0",
                 icon: 'cpu',
                 displayWidth: 1475,
                 displayHeight: 1850,
@@ -491,7 +527,7 @@
             pj_inv: {
                 title: 'Project & Invoice Update',
                 subtitle: 'Project Status & Invoice Tracking',
-                embedUrl: "https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={6acaba4e-b420-4c82-98b2-eb3ce4df7155}&action=embedview&wdAllowInteractivity=False&Item='PROJECT%20DASHBOARD'!Print_Area&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0",
+                embedUrl: "https://kanooz365-my.sharepoint.com/personal/naved_kanooz_com/_layouts/15/Doc.aspx?sourcedoc={6acaba4e-b420-4c82-98b2-eb3ce4df7155}&action=embedview&wdAllowInteractivity=False&Item='PROJECT%20DASHBOARD'!Print_Area&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0",
                 icon: 'briefcase',
                 displayWidth: 1475,
                 displayHeight: 1850,
@@ -502,6 +538,28 @@
 
         let activeDashboardId = null;
         let zoomLevel = 100;
+        let isPanEnabled = true;
+        let isDragging = false;
+        let dragStart = { x: 0, y: 0, scrollLeft: 0, scrollTop: 0 };
+
+        function togglePan() {
+            isPanEnabled = !isPanEnabled;
+            const btn = document.getElementById('panToggleButton');
+            const overlay = document.getElementById('panOverlay');
+            const viewport = document.getElementById('modalViewportPost');
+            if (isPanEnabled) {
+                btn.className = "flex items-center justify-center gap-1.5 px-3 py-2 bg-blue-600 text-white border-blue-600 hover:bg-blue-700/90 rounded-xl font-bold text-xs transition-all shadow-sm cursor-pointer select-none shrink-0";
+                btn.innerHTML = `<i data-lucide="hand" class="w-3.5 h-3.5 text-white animate-pulse"></i><span>Pan: On</span>`;
+                overlay.classList.remove('hidden');
+                viewport.className = "flex-1 overflow-auto flex relative p-12 custom-scrollbar-slate cursor-grab w-full h-full animate-fadeIn";
+            } else {
+                btn.className = "flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 text-slate-600 border-slate-200 hover:bg-white hover:text-blue-600 rounded-xl font-bold text-xs transition-all shadow-sm cursor-pointer select-none shrink-0 border";
+                btn.innerHTML = `<i data-lucide="hand" class="w-3.5 h-3.5 text-slate-500"></i><span>Pan: Off</span>`;
+                overlay.classList.add('hidden');
+                viewport.className = "flex-1 overflow-auto flex relative p-12 custom-scrollbar-slate cursor-default w-full h-full animate-fadeIn";
+            }
+            lucide.createIcons();
+        }
 
         function updateZoomStyles() {
             const scale = zoomLevel / 100;
@@ -557,13 +615,69 @@
             const iframe = document.getElementById('dashboardIframe');
             iframe.src = data.embedUrl;
             
-            // Set dynamic cropping dimensions from data config
-            const cTop = data.cropTop !== undefined ? data.cropTop : -28;
-            const cLeft = data.cropLeft !== undefined ? data.cropLeft : -10;
-            iframe.style.top = cTop + 'px';
-            iframe.style.left = cLeft + 'px';
-            iframe.style.width = `calc(100% + ${Math.abs(cLeft) * 2}px)`;
-            iframe.style.height = `calc(100% + ${Math.abs(cTop) + 40}px)`;
+            // Check mobile view
+            const isMobile = window.innerWidth < 768;
+            const desktopControls = document.getElementById('desktopControlsWrapper');
+            const overlay = document.getElementById('panOverlay');
+            const viewport = document.getElementById('modalViewportPost');
+            const scalerCanvas = document.getElementById('scalerCanvas');
+            const scaleHolder = document.getElementById('scaleHolder');
+
+            if (isMobile) {
+                if (desktopControls) desktopControls.classList.add('hidden');
+                if (overlay) overlay.classList.add('hidden');
+                if (viewport) {
+                    viewport.className = "flex-1 overflow-hidden flex relative p-0 bg-white w-full h-full animate-fadeIn";
+                }
+                if (scalerCanvas) {
+                    scalerCanvas.style.width = '100%';
+                    scalerCanvas.style.height = '100%';
+                    scalerCanvas.style.margin = '0';
+                }
+                if (scaleHolder) {
+                    scaleHolder.className = "absolute inset-0 w-full h-full";
+                    scaleHolder.style.width = '100%';
+                    scaleHolder.style.height = '100%';
+                    scaleHolder.style.transform = 'none';
+                }
+                iframe.className = "w-full h-full border-none bg-white";
+                iframe.style.top = '0px';
+                iframe.style.left = '0px';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+            } else {
+                if (desktopControls) desktopControls.classList.remove('hidden');
+                if (isPanEnabled) {
+                    if (overlay) overlay.classList.remove('hidden');
+                    if (viewport) {
+                        viewport.className = "flex-1 overflow-auto flex relative p-12 bg-white cursor-grab w-full h-full animate-fadeIn";
+                    }
+                } else {
+                    if (overlay) overlay.classList.add('hidden');
+                    if (viewport) {
+                        viewport.className = "flex-1 overflow-auto flex relative p-12 bg-white cursor-default w-full h-full animate-fadeIn";
+                    }
+                }
+                
+                if (scalerCanvas) {
+                    scalerCanvas.style.width = data.displayWidth + 'px';
+                    scalerCanvas.style.height = data.displayHeight + 'px';
+                    scalerCanvas.style.margin = 'auto';
+                }
+                if (scaleHolder) {
+                    scaleHolder.className = "absolute top-0 left-0 w-full h-full";
+                }
+                iframe.className = "iframe-crop-wrapper";
+                const cTop = data.cropTop !== undefined ? data.cropTop : -28;
+                const cLeft = data.cropLeft !== undefined ? data.cropLeft : -10;
+                iframe.style.top = cTop + 'px';
+                iframe.style.left = cLeft + 'px';
+                iframe.style.width = `calc(100% + ${Math.abs(cLeft) * 2}px)`;
+                iframe.style.height = `calc(100% + ${Math.abs(cTop) + 40}px)`;
+                
+                zoomLevel = 100;
+                updateZoomStyles();
+            }
 
             // Render matching icon
             const iconContainer = document.getElementById('modalIconContainer');
@@ -572,6 +686,12 @@
             // Active popup screen
             const modal = document.getElementById('dashboardModal');
             const modalBody = document.getElementById('modalBody');
+
+            // Hide main header
+            const header = document.getElementById('mainHeader');
+            if (header) {
+                header.classList.add('hidden');
+            }
 
             document.body.classList.add('modal-open');
             modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -584,20 +704,21 @@
             lucide.createIcons();
 
             // Clear horizontal and vertical scrollbars inside the modal container
-            const viewport = document.getElementById('modalViewportPost');
-            if (viewport) {
+            if (viewport && !isMobile) {
                 viewport.scrollLeft = 0;
                 viewport.scrollTop = 0;
             }
-
-            // Set initial state to 100% default zoom
-            zoomLevel = 100;
-            updateZoomStyles();
         }
 
         function closeModal() {
             const modal = document.getElementById('dashboardModal');
             const modalBody = document.getElementById('modalBody');
+
+            // Show main header
+            const header = document.getElementById('mainHeader');
+            if (header) {
+                header.classList.remove('hidden');
+            }
 
             modalBody.classList.remove('scale-100', 'translate-y-0');
             modalBody.classList.add('scale-95', 'translate-y-4');
@@ -617,6 +738,66 @@
             if (e.key === 'Escape') {
                 closeModal();
             }
+        });
+
+        // Setup dragging listeners on panOverlay
+        window.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('panOverlay');
+            const viewport = document.getElementById('modalViewportPost');
+
+            function handleStart(clientX, clientY) {
+                if (!isPanEnabled) return;
+                isDragging = true;
+                dragStart = {
+                    x: clientX,
+                    y: clientY,
+                    scrollLeft: viewport.scrollLeft,
+                    scrollTop: viewport.scrollTop
+                };
+            }
+
+            function handleMove(clientX, clientY) {
+                if (!isDragging || !isPanEnabled) return;
+                const dx = clientX - dragStart.x;
+                const dy = clientY - dragStart.y;
+                viewport.scrollLeft = dragStart.scrollLeft - dx;
+                viewport.scrollTop = dragStart.scrollTop - dy;
+            }
+
+            function handleEnd() {
+                isDragging = false;
+            }
+
+            overlay.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                handleStart(e.clientX, e.clientY);
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    handleMove(e.clientX, e.clientY);
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                handleEnd();
+            });
+
+            overlay.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 0) {
+                    handleStart(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (isDragging && e.touches.length > 0) {
+                    handleMove(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchend', () => {
+                handleEnd();
+            });
         });
 
         // Initialize Icons
